@@ -8,7 +8,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 
 var municipioSchema = new Schema({
     codigoMunicipio: { type:String, required: [true, 'El código del municipio es necesario']},
-    municipio: { type:String,unique:true, required: [true, 'El nombre de lal minicipio necesario']},
+    municipio: { type:String,unique:true, required: [true, 'El nombre del municipio necesario']},
     provincia: {type:Schema.Types.ObjectId, ref:'Provincia', required:false},
     codigoprovincia: { type:String, required: [true, 'El código del municipio es necesario']},
     activo: {type:Boolean, default: true},

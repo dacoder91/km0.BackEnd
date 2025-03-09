@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
             if (err) {
                 return res.status(500).json({
                     ok: false,
-                    mensaje: 'Error al cargar los Proyectos',
+                    mensaje: 'Error al cargar los Proyectos', //es --> en, mensaje --> message
                     err
                 });
             };
@@ -84,7 +84,7 @@ app.post('/', (req, res, next) => {
         if (err) {
             return res.status(400).json({
                 ok: false,
-                mensaje: ' Error al crear proyecto',
+                mensaje: ' Error al crear proyecto', //es --> en, mensaje --> message
                 errors: err
             });
         }

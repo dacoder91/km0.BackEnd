@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 
 var Schema = mongoose.Schema;
-var rolesValidos = {
+var validRoles  = {
     values: ['ADMIN_ROLE', 'USER_ROLE'],
     message: '{VALUE} no es un rol permitido'
     };
@@ -16,11 +16,15 @@ var userSchema = new Schema({
     password: { type: String, required: [true, 'La contraseña es necesaria']},
     name: { type: String, required: false},
     surname: { type: String, required: false },
-    nick: { type: String, required: false },
-    role: {type:String, required:true, default: 'USER_ROLE', enum: rolesValidos},
+    nick: { type: String, unique:true, required: false },
+    contactPhoneNumber: { type: String, required: false },
+    role: {type:String, required:true, default: 'USER_ROLE', enum: validRoles },
     active: {type:Boolean, required:true, default: true},
     signUpDate: {type:Date,required:true, default: new Date()},
     lastAccessDate: { type:Date, required:true, default: new Date()},
+    photo: { type: Buffer, required: false }, // Campo para almacenar la foto en formato bitmap
+    completedRoutes: [{ type:Schema.Types.ObjectId, ref:'Routes', required:false}],
+    motorcycles: [{ type:Schema.Types.ObjectId, ref:'Motorcycle', required:false}]
 });
 
 // para asociar el pluging propio de mongoose

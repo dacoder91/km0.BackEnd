@@ -84,14 +84,14 @@ app.put('/:id', verificaToken, (req, res, next) => {
             return res.status(400).json({
                 ok: false,
                 mensaje: ' El pais con el id' + id + ' no existe ',
-                errors: { mesage: 'No existe un Pais con ese ID' }
+                errors: { mesage: 'No existe un Pais con ese ID' } //mesage --> message
             });
         }
 
         if (err) {
             return res.status(500).json({
                 ok: false,
-                mensaje: ' Error al buscar Pais',
+                mensaje: ' Error al buscar Pais', //es --> en, mensaje --> message
                 errors: err
             });
         }
@@ -133,14 +133,14 @@ app.get('/:id', verificaToken, (req, res, next) => {
         if (err) {
             return res.status(500).json({
                 ok: false,
-                mensaje: 'Error al encontrar Pais',
+                mensaje: 'Error al encontrar Pais', //es --> en, mensaje --> message
                 erros: err
             });
         }
         if (!pais) {
             return res.status(400).json({
                 ok: false,
-                mensaje: 'El pais con  el id' + id + 'no Existe',
+                mensaje: 'El pais con  el id' + id + 'no Existe', //es --> en, mensaje --> message
                 errors: { message: 'No existe ese pais' }
             })
         }

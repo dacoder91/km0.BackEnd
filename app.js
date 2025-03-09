@@ -1,21 +1,15 @@
 // Requires, son librerias pesonalizadas o de terceros
 
-var express = require('express');
-var mongoose = require('mongoose');
+const express = require('express');
+const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
-var bodyParser = require('body-parser');
-
-var cors = require('cors'); // Lo he desahilitado, mirar nueva forma para habilitar
-// ==========Para controlar los Emails  ======
-// instalamos npm install nodemailer
-const nodemailer = require("nodemailer");
-
-// =========== PARA PRODUCCION ==========
-var path = require('path');
-// =======================================
+const bodyParser = require('body-parser');
+const cors = require('cors'); // Lo he desahilitado, mirar nueva forma para habilitar
+const nodemailer = require("nodemailer"); // Para controlar los Emails
+const path = require('path'); // Para producción
 
 // Inicializar Variables
-var app = express();
+const app = express();
 
 // Middleware para parsear el cuerpo de las solicitudes JSON
 app.use(express.json({ limit: '100mb' })); // Para aumentar el límite del bodyparser o dará error de PayloadTooLargeError: request entity too large
@@ -44,36 +38,9 @@ mongoose.connection.openUri('mongodb://localhost:27017/km0', { useNewUrlParser: 
     console.log('Base de datos: \x1b[32m%s\x1b[0m', 'online');
 });
 
-// =====================================================================
-//                                   IMPORTAR RUTAS                                  
-//======================================================================
-
-// **  AUTH  
-let loginRoutes = require('./routes/user/login/login');
-let registerRoutes = require('./routes/user/register/register');
-
-//   *** USER  
-let usersRoutes = require('./routes/user/user_utils/user_list');
-let clubRoutes = require('./routes/club/proyecto');
-
-//=================================================================================================================================
-//                                   CREAMOS LAS RUTAS
-//================================================================================================================================
-app.use('/users', usersRoutes); 
-app.use('/club', clubRoutes);
-
-//  ===================== USERS  =======================
-app.use('/register', registerRoutes);
-app.use('/login', loginRoutes);
-
-// ================================         ESTO ES PARA PRODUCCION                 =====================
-app.use('/', express.static('client', { redirect: false }));
-
-app.get('*', function (req, res, next) {
-    res.sendFile(path.resolve('client/index.html'));
-});
-
-// ========================================================================
+// Importar y usar rutas
+const routes = require('./routes');
+app.use(routes);
 
 // Escuchar peticiones
 app.listen(3016, () => {

@@ -8,7 +8,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 var provincia = {
     values: ['ALMERIA', 'GRANADA', 'JAEN', 'CORDOBA', 'SEVILLA', 'HUELVA', 'CADIZ', 'MALAGA'],
-    message: '{VALUE} no es unA PROVINICA permitida'
+    message: '{VALUE} no es una provincia permitida'
     };
 
 let usuarioSchema = new Schema({
@@ -20,7 +20,7 @@ let usuarioSchema = new Schema({
     municipio: { type:Schema.Types.ObjectId, ref:'Municipio',required: [true, 'El minicipio es es necesario']},
     gradoDiscapacidad: {type: String,required: [true, 'El grado de Discapacidad']},
     tipoDiscapacidad: {type: String,required: [true, 'El grado de Discapacidad']},
-    fnacimiento: {type: Date, required: [true, 'La fecha nacimiento es necesaria']}, // La fecha nacimiento es 
+    fnacimiento: {type: Date, required: [true, 'La fecha de nacimiento es necesaria']}, // La fecha de nacimiento es 
     telefono: {type: String,required: [true, 'El teléfono es necesario']},
     direccion: {type: String,required: false},
     cp: {type: String,required: [true, 'El código postal necesario']},

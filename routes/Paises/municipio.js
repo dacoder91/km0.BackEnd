@@ -20,7 +20,7 @@ app.get('/', (req, res, next) => {
                 if (err) {
                     return res.status(500).json({
                         ok: false,
-                        mensaje: 'Error cargando Provincias',
+                        mensaje: 'Error cargando Provincias', //es --> en, mensaje --> message
                         errors: err
                     });
                 }
@@ -36,7 +36,7 @@ app.get('/', (req, res, next) => {
 });
 
 //======================================================
-//      BUSCAR  MUNICIPIO SEGUN ID DE PROVINCIA
+//      BUSCAR MUNICIPIO SEGUN ID DE PROVINCIA
 //======================================================
 
 app.get('/:id',  (req, res, next) => {
@@ -46,14 +46,14 @@ app.get('/:id',  (req, res, next) => {
             if (err) {
                 return res.status(500).json({
                     ok: false,
-                    mensaje: 'Error al encontrarmunicipios',
+                    mensaje: 'Error al encontrar municipios', //es --> en, mensaje --> message
                     erros: err
                 });
             }
             if (!municipios) {
                 return res.status(400).json({
                     ok: false,
-                    mensaje: 'El pais con  el id' + id + 'no Existe',
+                    mensaje: 'El pais con  el id' + id + 'no Existe', //es --> en, mensaje --> message
                     errors: { message: 'No existe ese municipio' }
                 })
             }
