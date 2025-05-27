@@ -20,7 +20,7 @@ const generateEmailTemplate = (token) => `
                         <td align="center">
                             <h1 style="color:#b3b3b3;">¡Bienvenido a Km0!</h1>
                             <p style="color:#b3b3b3; font-size:16px;">Gracias por unirte a nuestra comunidad. Esperamos que disfrutes nuestros servicios.</p>
-                            <a href="http://localhost:3016/user/verify/${token}" style="background:#ca1332; color:#ffffff; text-decoration:none; padding:10px 20px; display:inline-block; border-radius:5px;">Verificar</a>
+                            <a href="https://km0api.tuaplicacionweb.es/user/verify/${token}" style="background:#ca1332; color:#ffffff; text-decoration:none; padding:10px 20px; display:inline-block; border-radius:5px;">Verificar</a>
                         </td>
                     </tr>
                     <tr>

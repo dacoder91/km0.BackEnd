@@ -9,15 +9,14 @@ var clubSchema = new Schema({
     description: { type: String, required: false },
     location: { type: String, required: false },
     foundationDate: { type: Date, required: false },
-    membersCount: { type: Number, required: false, default: 0 },
     contactEmail: { type: String, required: false },
     contactPhone: { type: String, required: false },
     events: [{ type: String, required: false }],
     profileImage: { type: String, required: false },
     website: { type: String, required: false },
     active: { type: Boolean, required: true, default: true },
-    signUpDate: { type: Date, required: true, default: new Date() },
-    lastAccessDate: { type: Date, required: true, default: new Date() }
+    // signUpDate: { type: Date, required: true, default: new Date() },
+    // lastAccessDate: { type: Date, required: true, default: new Date() }
 });
 
 // para asociar el pluging propio de mongoose

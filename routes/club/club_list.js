@@ -1,5 +1,6 @@
 var express = require('express');
 var Club = require('../../models/club/club'); // Importa el modelo del club
+var dateUtils = require('../../utils/dateUtils'); // Importar utilidades de fecha
 
 var app = express();
 app.use(express.json());
@@ -16,9 +17,21 @@ app.get('/', (req, res) => {
             });
         }
 
+        // Formatear las fechas de los clubes
+        const clubesFormateados = clubes.map(club => {
+            const clubObj = club.toObject();
+            
+            // Formatear la fecha de fundación si existe
+            if (clubObj.foundationDate) {
+                clubObj.foundationDate = dateUtils.formatDate(club.foundationDate);
+            }
+            
+            return clubObj;
+        });
+
         res.status(200).json({
             ok: true,
-            clubes: clubes
+            clubes: clubesFormateados
         });
     });
 });

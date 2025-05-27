@@ -1,5 +1,5 @@
 var express = require('express');
-var Motorcycle = require('../../../models/motorcycle'); // Importa el modelo de motorcycle
+var Motorcycle = require('../../models/motorcycle/motorcycle'); // Importa el modelo de motorcycle
 
 var app = express();
 app.use(express.json());
